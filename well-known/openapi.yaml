@@ -1,0 +1,65 @@
+openapi: 3.0.1
+info:
+    title: 图像切割
+    description: 可以根据点，框，文本，或者掩膜分割图片的插件。
+    version: "v1"
+servers:
+    - url: http://127.0.0.1:5000
+paths:
+    /upload_image_url:
+        post:
+            operationId: uploadImageUrl
+            summary: 上传图片链接
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/uploadImageUrl"
+            responses:
+                "200":
+                    description: 图片链接上传成功
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/messageResponse"
+    /upload_prompt:
+        post:
+            operationId: uploadPrompt
+            summary: 上传提示信息
+            requestBody:
+                required: true
+                content:
+                    application/json:
+                        schema:
+                            $ref: "#/components/schemas/uploadPrompt"
+            responses:
+                "200":
+                    description: 提示信息上传成功
+                    content:
+                        application/json:
+                            schema:
+                                $ref: "#/components/schemas/messageResponse"
+
+components:
+    schemas:
+        uploadImageUrl:
+            type: string
+            properties:
+                imgUrl:
+                    type: string
+            description: 上传图片链接
+        uploadPrompt:
+            type: string
+            properties:
+                prompt:
+                    type: string
+            description: 上传提示信息
+        messageResponse:
+            type: object
+            required:
+                - message
+            properties:
+                message:
+                    type: string
+                    description: 回复信息

@@ -1,0 +1,47 @@
+version: 0.0.1
+examples:
+      - context: # 对话历史
+          - role: user
+            content: 我要上传一张图片:https://wx2.sinaimg.cn/mw690/007jEN1wgy1hnazf1vd2yj323w35sqv6.jpg
+          - role: bot
+            # 触发插件
+            plugin:
+              # 应当触发的接口operationId
+              operationId: uploadImageUrl
+              # 思考过程，对触发有帮助
+              thoughts: 这是一个将图片链接放到图片集的需求
+              requestArguments:
+                imageUrl: https://wx2.sinaimg.cn/mw690/007jEN1wgy1hnazf1vd2yj323w35sqv6.jpg
+      - context:
+          - role: user
+            content: 上传提示信息：(2,4)
+          - role: bot
+            plugin:
+              operationId: uploadPromote
+              thoughts: 这是一个上传prompt信息的需求
+              requestArguments:
+                prompt: (2,4)
+      - context:
+          - role: user
+            content: 上传提示信息：(2,4),(5,8)
+          - role: bot
+            plugin:
+              operationId: uploadPromote
+              thoughts: 这是一个上传prompt信息的需求
+              requestArguments:
+                prompt: (2,4),(5,8)
+      - context:
+          - role: user
+            content: 上传提示信息：穿白色衣服的男人
+          - role: bot
+            plugin:
+              operationId: uploadPromote
+              thoughts: 这是一个上传prompt信息的需求
+              requestArguments:
+                prompt: 穿白色衣服的男人
+      - context:
+          - role: user
+            content: 这你怎么看待这张照片？
+          - role: bot
+            plugin:
+              thoughts: 我不需要使用以上工具

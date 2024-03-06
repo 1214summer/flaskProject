@@ -1,0 +1,17 @@
+{
+    "schema_version": "v1",
+    "name_for_human": "SAM切割",
+    "name_for_model": "SAM_model",
+    "description_for_human": "使用SAM模型切割图片，可以抠图以及产生分割掩码",
+    "description_for_model": "帮助用户切割图片,以实现快速分割的效果",
+    "auth": {
+        "type": "none"
+    },
+    "api":{
+        "type": "openapi",
+        "url": "http://127.0.0.1:5000/.well-known/openapi.yaml"
+    },
+    "logo_url": "http://127.0.0.1:5000/logo.png",
+    "contact_email": "bonniehuang2022@163.com",
+    "legal_info_url": "http://www.example.com/legal"
+}
